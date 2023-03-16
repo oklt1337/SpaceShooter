@@ -9,5 +9,10 @@ namespace _Project.Scripts.Menu
         {
             SceneManager.LoadScene(1);
         }
+
+        public void OnClickExit()
+        {
+            Application.Quit();
+        }
     }
 }

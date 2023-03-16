@@ -100,6 +100,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 491ef43e7b4ce79498f4994266b1578b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audioClips:
+  - {fileID: 8300000, guid: 7f4a5843255dc3e4bb659d59bc18952b, type: 3}
+  - {fileID: 8300000, guid: 9d2ee7259c65f094ea3c4114c344d7b9, type: 3}
+  - {fileID: 8300000, guid: 85bed7bf80cf9cb489ca9a1e99a09cc5, type: 3}
+  - {fileID: 8300000, guid: 011a1ef4f41fd624db0f591a45e2502b, type: 3}
+  - {fileID: 8300000, guid: 5ec9139ac9a2dcc4c9e69a327a54a953, type: 3}
+  - {fileID: 8300000, guid: 199c102348677fb41a77c602dbd5b164, type: 3}
   bulletPrefab: {fileID: 3573766181268407915, guid: 725f27fbd8da8184091d2f2af6ba5131, type: 3}
   bulletSpawnPosition: {fileID: 2186249150357160640}
 --- !u!50 &12089457541613650

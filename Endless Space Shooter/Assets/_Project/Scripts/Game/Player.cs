@@ -1,10 +1,15 @@
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace _Project.Scripts.Game
 {
     public class Player : MonoBehaviour
     {
+        [SerializeField] private List<AudioClip> audioClips = new();
+
         [SerializeField] private GameObject bulletPrefab;
         [SerializeField] private Transform bulletSpawnPosition;
         
@@ -130,6 +135,8 @@ namespace _Project.Scripts.Game
                 _worldPosition = _camera.ScreenToWorldPoint(Input.mousePosition);
                 _worldPosition.z = 0;
                 _moving = true;
+                
+                AudioManager.Instance.PlayClip(audioClips[4]);
             }
             Move();
 
@@ -164,6 +171,9 @@ namespace _Project.Scripts.Game
             bullet.Init(_worldPositionShoot, _bulletDamageModifier, _bulletSpeedModifier);
             
             _bulletTimer = BulletDelay;
+
+            var rnd = Random.Range(0, 1);
+            AudioManager.Instance.PlayClip(audioClips[rnd]);
         }
 
         private void GetWorldPos()
@@ -188,10 +198,14 @@ namespace _Project.Scripts.Game
         public void TakeDamage(int damage)
         {
             Health -= damage;
+            AudioManager.Instance.PlayClip(audioClips.Last());
         }
 
         public void AddPowerUp(PowerUpType type, float modifier)
-        { 
+        {
+            var rnd = Random.Range(2, 3);
+            AudioManager.Instance.PlayClip(audioClips[rnd]);
+            
             switch (type)
             {
                 case PowerUpType.Speed:
