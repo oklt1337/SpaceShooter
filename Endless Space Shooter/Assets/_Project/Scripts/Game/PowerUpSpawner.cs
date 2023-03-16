@@ -8,16 +8,16 @@ namespace _Project.Scripts.Game
 {
     public class PowerUpSpawner : MonoBehaviour
     {
-        [SerializeField] private List<GameObject> powerUpPrefabs= new();
+        [SerializeField] private List<GameObject> powerUpPrefabs = new();
         private readonly List<PowerUp> _powerUps = new();
         private Camera _camera;
         private float _timer;
 
         public void RemovePowerUp(PowerUp powerUp)
         {
-            if (!_powerUps.Contains(powerUp)) 
+            if (!_powerUps.Contains(powerUp))
                 return;
-            
+
             _powerUps.Remove(powerUp);
             Destroy(powerUp.gameObject);
         }
@@ -55,10 +55,20 @@ namespace _Project.Scripts.Game
             {
                 SetTimer();
                 var powerUp = Random.Range(0, powerUpPrefabs.Count - 1);
-                Vector2 randomPositionOnScreen = 
-                    _camera.ViewportToWorldPoint(new Vector2( Random.value, Random.value));
-                var power = Instantiate(powerUpPrefabs[powerUp], randomPositionOnScreen, Quaternion.identity).GetComponent<PowerUp>();
-                power.Init(this);
+                Vector2 randomPositionOnScreen =
+                    _camera.ViewportToWorldPoint(new Vector2(Random.value, Random.value));
+                var power = Instantiate(powerUpPrefabs[powerUp], randomPositionOnScreen, Quaternion.identity)
+                    .GetComponent<PowerUp>();
+
+                
+                var rarityChance = Random.Range(0, 100);
+                var rarity = rarityChance switch
+                {
+                    < 3 => Rarity.Gold,
+                    >= 3 and < 30 => Rarity.Silver,
+                    _ => Rarity.Bronze
+                };
+                power.Init(this, rarity);
                 _powerUps.Add(power);
             }
             else
@@ -74,7 +84,7 @@ namespace _Project.Scripts.Game
 
         private void DestroyPowerUps()
         {
-            if (_powerUps.Count == 0) 
+            if (_powerUps.Count == 0)
                 return;
             for (var i = _powerUps.Count - 1; i >= 0; i--)
             {

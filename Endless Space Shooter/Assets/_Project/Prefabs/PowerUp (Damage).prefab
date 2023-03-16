@@ -48,6 +48,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 2
+  sprites:
+  - {fileID: 21300000, guid: 878668d1284938846a3ceea982245e8b, type: 3}
+  - {fileID: 21300000, guid: 1203dac527a27704ca59c8bfb1abf2c7, type: 3}
+  - {fileID: 21300000, guid: 8847f8bc177e6ff45b367d43f4a4f05e, type: 3}
+  spriteRenderer: {fileID: 8950850311038439668}
   modifier: 1
 --- !u!212 &8950850311038439668
 SpriteRenderer:

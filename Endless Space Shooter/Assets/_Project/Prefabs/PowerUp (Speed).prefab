@@ -48,6 +48,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 0
+  sprites:
+  - {fileID: 21300000, guid: 496e2a707cb0f9549993b54090c68a03, type: 3}
+  - {fileID: 21300000, guid: a4ae260c618f05b4ca79b6b3b1ba652d, type: 3}
+  - {fileID: 21300000, guid: 96d637ddf9983ad47b00ab3e03ebd30e, type: 3}
+  spriteRenderer: {fileID: 8786247711146346004}
   modifier: 1
 --- !u!212 &8786247711146346004
 SpriteRenderer:
@@ -90,7 +95,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: a4ae260c618f05b4ca79b6b3b1ba652d, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 496e2a707cb0f9549993b54090c68a03, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
